@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CRUD App</title>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome, {{ current_user.username }}</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('logout') }}">Logout</a>
+                <a href="{{ url_for('add_item') }}">Add New Ticket</a>
+            </div>
+            <h2>Tickets</h2>
+            <ul>
+                {% for item in items %}
+                <li>
+                    <strong>{{ item.name }}</strong> - {{ item.description }}
+                    <div class="item-actions">
+                        <a
+                            href="{{ url_for('edit_item', item_id=item._id) }}">Edit</a>
+                        <a
+                            href="{{ url_for('delete_item', item_id=item._id) }}">Delete</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

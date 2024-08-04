@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Item</title>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Edit Ticket</h1>
+            <form method="POST"
+                action="{{ url_for('edit_item', item_id=item._id) }}">
+                <input type="text" name="name" value="{{ item.name }}" required>
+                <input type="text" name="description"
+                    value="{{ item.description }}">
+                <button type="submit">Update Item</button>
+            </form>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Back to Index</a>
+            </div>
+        </div>
+    </body>
+</html>

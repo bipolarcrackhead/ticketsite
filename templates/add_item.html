@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Item</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <!-- Added style for the logo -->
+  <style>
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Added image element for the logo -->
+  <img src="{{ url_for('static', filename='image.png') }}" alt="Logo" class="logo">
+  <div class="container">
+    
+    <h1>Add New Ticket</h1>
+    <p>Rs. 500 per each </p>
+    <form method="POST">
+      <input type="text" name="name" placeholder="Ticket Name" required />
+      <input type="text" name="description" placeholder="Ticket Number" />
+      <button type="submit">Add Item</button>
+    </form>
+    <div class="nav-links">
+      <a href="{{ url_for('index') }}">Back to Index</a>
+    </div>
+  </div>
+</body>
+
+</html>
